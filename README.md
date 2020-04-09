@@ -1,2 +1,7 @@
-# scream-machine-game-jam-2020
-Repositório do jogo criado para a Scream, uma JAM focada em jogos de terror.
+# SCREAM MACHINE
+## GameJAM 2020
+
+Jogo criado para a Game JAM [SCREAM MACHINE](https://itch.io/jam/scream-machine)
+
+- Foco: Terror
+- Tema: Máquina
