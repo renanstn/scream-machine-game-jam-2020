@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Tests/TestEmitter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Effects/Blink.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="TestsShaders" type="Node2D"]
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 512, 256 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Blink" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="TestEmitter" parent="." instance=ExtResource( 1 )]
+[connection signal="test" from="TestEmitter" to="Blink" method="_on_TestEmitter_test"]
