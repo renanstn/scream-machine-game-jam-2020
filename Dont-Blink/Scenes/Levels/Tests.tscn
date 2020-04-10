@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Effects/Blink.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Tests/TestEmitter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -141,8 +140,5 @@ texture = ExtResource( 2 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [node name="Blink" parent="CanvasLayer" instance=ExtResource( 3 )]
-
-[node name="TestEmitter" parent="." instance=ExtResource( 4 )]
 [connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
-[connection signal="test" from="TestEmitter" to="CanvasLayer/Blink" method="_on_TestEmitter_test"]
