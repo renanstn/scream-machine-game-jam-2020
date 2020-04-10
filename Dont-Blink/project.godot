@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "BasicMovement2D",
 "language": "GDScript",
 "path": "res://Scripts/BasicMovement.gd"
+}, {
+"base": "Node",
+"class": "DialogueAction",
+"language": "GDScript",
+"path": "res://Scripts/DialogAction.gd"
 } ]
 _global_script_class_icons={
-"BasicMovement2D": ""
+"BasicMovement2D": "",
+"DialogueAction": ""
 }
 
 [application]
