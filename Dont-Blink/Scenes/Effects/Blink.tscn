@@ -32,6 +32,7 @@ tracks/1/keys = {
 }
 
 [node name="Blink" type="TextureRect"]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 1 )
@@ -46,5 +47,5 @@ anims/Blink = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 5.0
+wait_time = 7.0
 one_shot = true
