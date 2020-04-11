@@ -41,10 +41,13 @@ export (bool) var CAN_FLY = false
 
 onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
+onready var footstep_sound = $AudioStreamPlayer
+onready var timer_step = $TimeEachStep
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
 var looking_to_right : bool = true
+var can_play_footstep : bool = true
 
 signal is_walking
 signal is_idle
@@ -63,6 +66,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	emit_signals(motion)
 	animate()
+	emit_sound()
 	
 func transform_inputs_in_motion() -> Vector2:
 
@@ -139,3 +143,13 @@ func animate():
 			animation_player.play("walking")
 		else:
 			animation_player.play("idle")
+
+func emit_sound():
+	if is_on_floor():
+		if abs(motion.x) > 1.0 and can_play_footstep:
+			can_play_footstep = false
+			footstep_sound.play()
+			timer_step.start()
+
+func _on_TimeEachStep_timeout():
+	can_play_footstep = true
