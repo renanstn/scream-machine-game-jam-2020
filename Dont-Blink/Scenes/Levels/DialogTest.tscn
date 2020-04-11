@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/DialogAction.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/HUD/DialogBox.tscn" type="PackedScene" id=2]
 
 [node name="DialogTest" type="Control"]
 anchor_right = 1.0
@@ -9,3 +10,5 @@ anchor_bottom = 1.0
 [node name="DialogueAction" type="Node" parent="."]
 script = ExtResource( 1 )
 dialogue_file_path = "res://Dialogs/test.json"
+
+[node name="DialogBox" parent="." instance=ExtResource( 2 )]

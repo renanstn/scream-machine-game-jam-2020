@@ -1,7 +1,7 @@
 extends TextureRect
 
 onready var anim_player = $AnimationPlayer
-onready var audio_player = $AudioStreamPlayer
+onready var blink_sound = $AudioStreamPlayer
 onready var timer = $Timer
 
 signal time_left(time_left)
@@ -17,8 +17,7 @@ func _process(delta):
 		blink()
 
 func blink():
-	print("blink!")
-	audio_player.play()
+	blink_sound.play()
 	anim_player.play("Blink")
 	timer.start()
 
