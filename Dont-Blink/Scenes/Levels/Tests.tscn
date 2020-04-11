@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Effects/Blink.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -118,7 +116,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Ground"]
-position = Vector2( 896, 544 )
+position = Vector2( 480, 480 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D10"]
 shape = SubResource( 1 )
@@ -128,7 +126,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Ground"]
-position = Vector2( 832, 544 )
+position = Vector2( 544, 480 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D9"]
 shape = SubResource( 1 )
@@ -136,11 +134,3 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Ground/StaticBody2D9"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 5 )]
-
-[node name="Blink" parent="CanvasLayer" instance=ExtResource( 3 )]
-[connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
-[connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]

@@ -44,7 +44,7 @@ onready var sprite = $Sprite
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
-var looking_to_right : bool
+var looking_to_right : bool = true
 
 signal is_walking
 signal is_idle
@@ -53,7 +53,7 @@ signal is_falling
 signal is_sprinting
 signal is_on_ground
 signal is_thrusting
-signal player_flipped
+signal player_flipped(to_right)
 
 # ========================================================================
 func _physics_process(delta):
@@ -118,12 +118,12 @@ func emit_signals(motion : Vector2):
 
 	if motion.x < 0 and looking_to_right:
 		sprite.flip_h = true
-		emit_signal("player_flipped")
+		emit_signal("player_flipped", looking_to_right)
 		looking_to_right = false
 	if motion.x > 0 and not looking_to_right:
+		emit_signal("player_flipped", looking_to_right)
 		looking_to_right = true
 		sprite.flip_h = false
-		emit_signal("player_flipped")
 
 	if motion.y < 0:
 		if CAN_FLY:
