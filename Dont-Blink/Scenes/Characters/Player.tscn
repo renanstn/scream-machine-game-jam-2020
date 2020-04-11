@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Klin B.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BasicMovement.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.03727
+height = 19.9174
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walking"
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -14,3 +50,9 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 10
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 2 )
+anims/walking = SubResource( 3 )

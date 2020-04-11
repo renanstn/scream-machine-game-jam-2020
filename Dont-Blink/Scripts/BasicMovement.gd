@@ -39,11 +39,15 @@ export (bool) var CAN_SPRINT = true
 export (bool) var CAN_JUMP = true
 export (bool) var CAN_FLY = false
 
+onready var animation_player = $AnimationPlayer
+onready var sprite = $Sprite
+
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
 var looking_to_right : bool
 
 signal is_walking
+signal is_idle
 signal is_jumping
 signal is_falling
 signal is_sprinting
@@ -58,6 +62,7 @@ func _physics_process(delta):
 	motion = transform_inputs_in_motion()
 	motion = move_and_slide(motion, UP)
 	emit_signals(motion)
+	animate()
 	
 func transform_inputs_in_motion() -> Vector2:
 
@@ -103,16 +108,21 @@ func emit_signals(motion : Vector2):
 
 	if is_on_floor() and motion.x != 0:
 		emit_signal("is_on_ground")
-		if abs(motion.x) <= WALK_SPEED:
+		if abs(motion.x) != 0 and abs(motion.x) <= WALK_SPEED:
 			emit_signal("is_walking")
 		else:
 			emit_signal("is_sprinting")
 
+	if motion.x == 0:
+		emit_signal("is_idle")
+
 	if motion.x < 0 and looking_to_right:
+		sprite.flip_h = true
 		emit_signal("player_flipped")
 		looking_to_right = false
 	if motion.x > 0 and not looking_to_right:
 		looking_to_right = true
+		sprite.flip_h = false
 		emit_signal("player_flipped")
 
 	if motion.y < 0:
@@ -122,3 +132,10 @@ func emit_signals(motion : Vector2):
 			emit_signal("is_jumping")
 	elif motion.y > 0:
 		emit_signal("is_falling")
+
+func animate():
+	if is_on_floor():
+		if abs(motion.x) > 1.0:
+			animation_player.play("walking")
+		else:
+			animation_player.play("idle")

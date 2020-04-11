@@ -11,7 +11,9 @@ extents = Vector2( 32, 32 )
 [node name="Tests" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 384 )
+position = Vector2( 352, 480 )
+WALK_SPEED = 100.0
+CAN_SPRINT = false
 
 [node name="Ground" type="Node2D" parent="."]
 
