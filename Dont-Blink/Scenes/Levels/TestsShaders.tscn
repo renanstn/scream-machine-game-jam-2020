@@ -19,5 +19,6 @@ texture = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 4 )]
+[connection signal="max_value" from="Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
 [connection signal="time_left" from="Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
 [connection signal="test" from="TestEmitter" to="Blink" method="_on_TestEmitter_test"]
