@@ -1,8 +1,8 @@
 extends Control
 
-onready var rich_text = $PanelContainer/HBoxContainer/RichTextLabel
+onready var rich_text = $Container/HBoxContainer/PanelContainer2/RichTextLabel
 onready var tween = $Tween
-onready var next_indicator = $PanelContainer/HBoxContainer/Sprite
+onready var next_indicator = $Container/HBoxContainer/NextIcon
 onready var dialog_action = $DialogueAction
 
 signal complete

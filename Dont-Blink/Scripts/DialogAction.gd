@@ -1,7 +1,7 @@
 extends Node
 class_name DialogueAction
 
-export(String, FILE, "*.json") var dialogue_file_path : String
+export(String, FILE, "*.json") var dialogue_file_path
 
 func load_dialogue():
 	"""
