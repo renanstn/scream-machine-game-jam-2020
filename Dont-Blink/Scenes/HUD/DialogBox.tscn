@@ -77,4 +77,5 @@ anims/press = SubResource( 1 )
 
 [node name="DialogueAction" type="Node" parent="."]
 script = ExtResource( 3 )
+dialogue_file_path = "res://Dialogs/test.json"
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

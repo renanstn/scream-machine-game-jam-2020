@@ -3,18 +3,16 @@ extends Control
 onready var rich_text = $PanelContainer/HBoxContainer/RichTextLabel
 onready var tween = $Tween
 onready var next_indicator = $PanelContainer/HBoxContainer/Sprite
+onready var dialog_action = $DialogueAction
 
-var dialog = [
-	"oloco meu",
-	"oloco meu pau",
-	"oloco meu cu",
-	"oloco meu cacetinho",
-]
+signal complete
 
 var dialog_index = 0
 var finished = false
+var dialog : Array
 
 func _ready():
+	dialog = dialog_action.load_dialogue()
 	load_dialog()
 
 func _process(delta):
@@ -25,7 +23,7 @@ func _process(delta):
 func load_dialog():
 	if dialog_index < dialog.size():
 		finished = false
-		rich_text.bbcode_text = dialog[dialog_index]
+		rich_text.bbcode_text = dialog[dialog_index]["text"]
 		rich_text.percent_visible = 0
 		tween.interpolate_property(
 			rich_text, # Quem vai ser animado
@@ -39,9 +37,8 @@ func load_dialog():
 		tween.start()
 
 	else:
-		queue_free()
+		emit_signal("complete")
 	dialog_index += 1
-
 
 func _on_Tween_tween_completed(object, key):
 	finished = true

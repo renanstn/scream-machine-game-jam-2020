@@ -23,3 +23,9 @@ func blink():
 
 func _on_TestEmitter_test():
 	blink()
+
+func pause_timer():
+	timer.paused = true
+	
+func unpause_timer():
+	timer.paused = false

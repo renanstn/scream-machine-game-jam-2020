@@ -43,11 +43,14 @@ onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
 onready var footstep_sound = $AudioStreamPlayer
 onready var timer_step = $TimeEachStep
+onready var dialog = $CanvasLayer/DialogBox
+onready var blink = $CanvasLayer/Blink
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
 var looking_to_right : bool = true
 var can_play_footstep : bool = true
+var can_control : bool = true
 
 signal is_walking
 signal is_idle
@@ -61,13 +64,16 @@ signal player_flipped(to_right)
 # ========================================================================
 func _physics_process(delta):
 
-	motion.y += GRAVITY
-	motion = transform_inputs_in_motion()
-	motion = move_and_slide(motion, UP)
-	emit_signals(motion)
-	animate()
-	emit_sound()
-	
+	if can_control:
+		motion.y += GRAVITY
+		motion = transform_inputs_in_motion()
+		motion = move_and_slide(motion, UP)
+		emit_signals(motion)
+		animate()
+		emit_sound()
+		if Input.is_action_just_pressed("test"):
+			call_dialog_box()
+
 func transform_inputs_in_motion() -> Vector2:
 
 	var friction : bool = false
@@ -153,3 +159,12 @@ func emit_sound():
 
 func _on_TimeEachStep_timeout():
 	can_play_footstep = true
+
+func call_dialog_box():
+	blink.pause_timer()
+	can_control = false
+	dialog.show()
+	yield(dialog, "complete")
+	can_control = true
+	blink.unpause_timer()
+	dialog.hide()

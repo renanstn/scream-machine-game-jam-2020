@@ -1,4 +1,4 @@
-{
-    "001": {"name": "CharTest", "text":"Mama eu bem gostoso!"},
-    "002": {"name": "OutroChar", "text":"Mama eu também!"}
-}
+[
+    {"name": "CharTest", "text":"Mama eu bem gostoso!"},
+    {"name": "OutroChar", "text":"Mama eu também!"}
+]
