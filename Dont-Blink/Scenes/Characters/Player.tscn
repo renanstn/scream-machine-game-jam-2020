@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/Klin B.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BasicMovement.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sounds/footstep.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/HUD/DialogBox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Light.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Shaders/ShaderStatic.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.03727
@@ -85,8 +86,12 @@ script = ExtResource( 3 )
 visible = false
 
 [node name="Blink" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
 
 [node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="ShaderStatic" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
 
 [node name="StepSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -102,5 +107,6 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
 shape = SubResource( 4 )
 [connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
+[connection signal="shader_static" from="CanvasLayer/Blink" to="CanvasLayer/ShaderStatic" method="_on_Blink_shader_static"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
 [connection signal="timeout" from="TimeEachStep" to="." method="_on_TimeEachStep_timeout"]

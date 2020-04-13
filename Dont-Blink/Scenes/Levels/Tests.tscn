@@ -21,6 +21,14 @@ texture = ExtResource( 3 )
 position = Vector2( 448, 512 )
 texture = ExtResource( 3 )
 
+[node name="Wallpaper8" type="Sprite" parent="Wallpaper"]
+position = Vector2( 576, 512 )
+texture = ExtResource( 3 )
+
+[node name="Wallpaper10" type="Sprite" parent="Wallpaper"]
+position = Vector2( 704, 512 )
+texture = ExtResource( 3 )
+
 [node name="Wallpaper6" type="Sprite" parent="Wallpaper"]
 position = Vector2( 192, 384 )
 texture = ExtResource( 3 )
@@ -33,11 +41,19 @@ texture = ExtResource( 3 )
 position = Vector2( 448, 384 )
 texture = ExtResource( 3 )
 
+[node name="Wallpaper7" type="Sprite" parent="Wallpaper"]
+position = Vector2( 576, 384 )
+texture = ExtResource( 3 )
+
+[node name="Wallpaper9" type="Sprite" parent="Wallpaper"]
+position = Vector2( 704, 384 )
+texture = ExtResource( 3 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 720899, 9, 0, 786435, 9, 0, 851971, 9, 0, 917507, 9, 0, 917508, 9, 0, 917509, 9, 0, 917510, 9, 0, 917511, 9, 0, 917512, 9, 0, 983043, 9, 0, 1048579, 9, 0, 1114115, 9, 0, 1179651, 9, 0, 1179652, 9, 0, 1179653, 9, 0, 1179654, 9, 0, 1179655, 9, 0, 1179656, 9, 0, 1179657, 9, 0, 1179658, 9, 0, 1179659, 9, 0, 1179660, 9, 0, 1179661, 9, 0, 1179662, 9, 0, 1179663, 9, 0, 1179664, 9, 0, 1179665, 9, 0, 1179666, 9, 0, 1179667, 9, 0, 1179668, 9, 0, 1179669, 9, 0, 1179670, 9, 0, 1179671, 9, 0, 1179672, 9, 0, 1179673, 9, 0, 1179674, 9, 0, 1179675, 9, 0, 1179676, 9, 0 )
+tile_data = PoolIntArray( 655383, 9, 0, 720899, 9, 0, 720919, 9, 0, 786435, 9, 0, 786455, 9, 0, 851971, 9, 0, 851991, 9, 0, 917507, 9, 0, 917508, 9, 0, 917509, 9, 0, 917510, 9, 0, 917511, 9, 0, 917512, 9, 0, 917527, 9, 0, 983043, 9, 0, 983063, 9, 0, 1048579, 9, 0, 1048599, 9, 0, 1114115, 9, 0, 1114135, 9, 0, 1179651, 12, 0, 1179652, 11, 0, 1179653, 10, 0, 1179654, 11, 0, 1179655, 11, 0, 1179656, 11, 0, 1179657, 11, 0, 1179658, 10, 0, 1179659, 10, 0, 1179660, 11, 0, 1179661, 11, 0, 1179662, 11, 0, 1179663, 10, 0, 1179664, 11, 0, 1179665, 11, 0, 1179666, 11, 0, 1179667, 10, 0, 1179668, 10, 0, 1179669, 10, 0, 1179670, 11, 0, 1179671, 11, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 544 )
