@@ -12,10 +12,13 @@ enum EVENT {
 	scare_glitches
 }
 
-var event = EVENT.no_event
+var event = EVENT.scare_image
+var shader_static = false
+var shader_active = false
 
 signal time_left(time_left)
 signal max_value(value)
+signal shader_static(on)
 
 func _ready():
 	yield(get_tree(), "idle_frame")
@@ -28,7 +31,10 @@ func _process(delta):
 		blink()
 
 func blink():
-	play_events()
+	if shader_active:
+		turn_off_shaders()
+	else:
+		play_events()
 	blink_sound.play()
 	anim_player.play("Blink")
 	timer.start()
@@ -44,5 +50,14 @@ func _on_TimerScareImg_timeout():
 
 func play_events():
 	if event == EVENT.scare_image:
+		shader_active = true
+		shader_static = true
 		scare_sprite.show()
 		timer_scare.start()
+		emit_signal("shader_static", shader_static)
+
+func turn_off_shaders():
+	if shader_static:
+		shader_static = false
+		emit_signal("shader_static", shader_static)
+	shader_active = false

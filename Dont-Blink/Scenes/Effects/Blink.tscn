@@ -34,7 +34,6 @@ tracks/1/keys = {
 }
 
 [node name="Blink" type="TextureRect"]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 1 )
