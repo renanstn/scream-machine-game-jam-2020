@@ -11,12 +11,10 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 30.0
-margin_top = -70.0
-margin_right = 280.0
-margin_bottom = -30.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 282.0
+margin_bottom = 72.0
 rect_min_size = Vector2( 250, 40 )
 max_value = 0.0
 percent_visible = false
