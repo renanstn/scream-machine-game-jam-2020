@@ -2,6 +2,9 @@ extends Control
 
 onready var progress_blink = $ProgressBar
 
+func _ready():
+	show()
+
 func _on_Blink_max_value(value):
 	progress_blink.max_value = value
 

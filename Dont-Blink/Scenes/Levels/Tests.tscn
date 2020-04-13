@@ -44,4 +44,5 @@ position = Vector2( 160, 544 )
 WALK_SPEED = 100.0
 CAN_SPRINT = false
 
-[node name="CanvasModulate" parent="." instance=ExtResource( 4 )]
+[node name="DarkEffect" parent="." instance=ExtResource( 4 )]
+visible = false

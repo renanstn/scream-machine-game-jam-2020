@@ -1,4 +1,7 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/DarkEffect.gd" type="Script" id=1]
 
 [node name="DarkEffect" type="CanvasModulate"]
 color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+script = ExtResource( 1 )

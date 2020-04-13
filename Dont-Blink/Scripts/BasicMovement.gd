@@ -2,26 +2,6 @@ extends KinematicBody2D
 
 class_name BasicMovement2D
 
-"""
-	This script provides a basic player movement,
-	with editable values, and options to sprint and fly.
-	It also emits signals for each action.
-	
-	Copy this script to your project, and a new node
-	'BasicMovement2D' will appear in godot's list, as a
-	KinematicBody2D's child.
-	
-	Requirements:
-		The following inputs need to be created:
-		- 'left'
-		- 'right'
-		- 'sprint'
-		- 'jump'
-	
-	Credits: Renan Santana Desiderio
-	https://github.com/Doc-McCoy
-"""
-
 const UP : Vector2 = Vector2(0, -1)
 
 export (int, 0, 100) var GRAVITY  = 20
@@ -33,7 +13,6 @@ export (float, 0, 1) var AIR_DEACELERATION = 0.02
 export (float, 0, 500) var SPRINT_SPEED : int = 200
 export (float, 0, 500) var MAX_THRUST = 300
 export (float, 0, 50) var THRUST_POWER = 30
-
 export (bool) var CAN_WALK = true
 export (bool) var CAN_SPRINT = true
 export (bool) var CAN_JUMP = true
@@ -41,10 +20,11 @@ export (bool) var CAN_FLY = false
 
 onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
-onready var footstep_sound = $AudioStreamPlayer
+onready var footstep_sound = $StepSound
 onready var timer_step = $TimeEachStep
 onready var dialog = $CanvasLayer/DialogBox
 onready var blink = $CanvasLayer/Blink
+onready var interactive_area = $InteractiveArea
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
@@ -62,8 +42,19 @@ signal is_thrusting
 signal player_flipped(to_right)
 
 # ========================================================================
-func _physics_process(delta):
+func _process(delta):
+	# Interação com itens
+	if Input.is_action_just_pressed("interact"):
+		var itens = interactive_area.get_overlapping_areas()
+		for item in itens:
+			if item.has_method("collect"):
+				item.collect()
 
+	# Teste
+	if Input.is_action_just_pressed("test"):
+		call_dialog_box()
+
+func _physics_process(delta):
 	if can_control:
 		motion.y += GRAVITY
 		motion = transform_inputs_in_motion()
@@ -71,11 +62,8 @@ func _physics_process(delta):
 		emit_signals(motion)
 		animate()
 		emit_sound()
-		if Input.is_action_just_pressed("test"):
-			call_dialog_box()
 
 func transform_inputs_in_motion() -> Vector2:
-
 	var friction : bool = false
 
 	# Sprint (increase max speed)
@@ -113,9 +101,7 @@ func transform_inputs_in_motion() -> Vector2:
 
 	return motion
 
-
 func emit_signals(motion : Vector2):
-
 	if is_on_floor() and motion.x != 0:
 		emit_signal("is_on_ground")
 		if abs(motion.x) != 0 and abs(motion.x) <= WALK_SPEED:

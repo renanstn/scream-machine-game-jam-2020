@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Klin B.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BasicMovement.gd" type="Script" id=2]
@@ -48,6 +48,9 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8 ]
 }
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16.1192, 16.4107 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 JUMP_FORCE = 400.0
@@ -85,13 +88,19 @@ visible = false
 
 [node name="DialogBox" parent="CanvasLayer" instance=ExtResource( 7 )]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="StepSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -20.0
 
 [node name="TimeEachStep" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="InteractiveArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
+shape = SubResource( 4 )
 [connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
 [connection signal="timeout" from="TimeEachStep" to="." method="_on_TimeEachStep_timeout"]
