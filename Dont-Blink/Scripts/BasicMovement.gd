@@ -40,6 +40,8 @@ signal is_sprinting
 signal is_on_ground
 signal is_thrusting
 signal player_flipped(to_right)
+signal hide_hud
+signal show_hud
 
 # ========================================================================
 func _process(delta):
@@ -158,6 +160,7 @@ func call_dialog_box(ids : Array):
 	blink.pause_timer()
 	# Retirar o controle do jogador
 	can_control = false
+	emit_signal("hide_hud")
 	dialog.prepare_dialog(ids)
 	dialog.show()
 	dialog.load_dialog()
@@ -167,3 +170,4 @@ func call_dialog_box(ids : Array):
 	can_control = true
 	blink.unpause_timer()
 	dialog.hide()
+	emit_signal("show_hud")

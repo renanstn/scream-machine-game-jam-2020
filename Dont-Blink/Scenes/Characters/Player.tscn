@@ -106,6 +106,8 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
 shape = SubResource( 4 )
+[connection signal="hide_hud" from="." to="CanvasLayer/HUD" method="_on_Player_hide_hud"]
+[connection signal="show_hud" from="." to="CanvasLayer/HUD" method="_on_Player_show_hud"]
 [connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
 [connection signal="shader_static" from="CanvasLayer/Blink" to="CanvasLayer/ShaderStatic" method="_on_Blink_shader_static"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
