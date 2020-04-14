@@ -47,12 +47,15 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		var itens = interactive_area.get_overlapping_areas()
 		for item in itens:
-			if item.has_method("collect"):
-				item.collect()
+			# Verifica se é um item que dispara diálogo
+			if item.has_method("dialog"):
+				var key = item.dialog()
+				call_dialog_box(key)
 
 	# Teste
 	if Input.is_action_just_pressed("test"):
-		call_dialog_box()
+		var key = ["intro001", "intro002", "intro003"]
+		call_dialog_box(key)
 
 func _physics_process(delta):
 	if can_control:
@@ -146,11 +149,21 @@ func emit_sound():
 func _on_TimeEachStep_timeout():
 	can_play_footstep = true
 
-func call_dialog_box():
+func call_dialog_box(ids : Array):
+	"""
+	Recebe a chave do json cujo texto é pra ser exibido,
+	paralisa o mundo, e abre o dialogbox na tela.
+	"""
+	# Pausar o timer
 	blink.pause_timer()
+	# Retirar o controle do jogador
 	can_control = false
+	dialog.prepare_dialog(ids)
 	dialog.show()
+	dialog.load_dialog()
+	# Executa o diálogo, até o signal "complete" ser enviado
 	yield(dialog, "complete")
+	# Retorna o controle e o timer de blink
 	can_control = true
 	blink.unpause_timer()
 	dialog.hide()

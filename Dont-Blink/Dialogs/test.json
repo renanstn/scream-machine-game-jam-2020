@@ -1,4 +1,7 @@
-[
-    {"name": "CharTest", "text": "Mama eu bem gostoso!"},
-    {"name": "OutroChar", "text": "Mama eu tambem!"}
-]
+{
+    "intro001": {"name": "CharTest", "text": "Bla bla bla 1"},
+    "intro002": {"name": "CharTest", "text": "Bla bla bla 2"},
+    "intro003": {"name": "CharTest", "text": "Bla bla bla 3"},
+
+    "item001": {"name": "Alavanca", "text": "Voce acessou uma fala do item"}
+}
