@@ -6,6 +6,8 @@ var tilemap : TileMap
 
 func _ready():
 	tilemap = get_node("/root/Tests/TileMap")
+	if tilemap == null:
+		tilemap = get_node("/root/Level_01/TileMap")
 	position = Vector2(CAMERA_OFFSET, 0)
 	# Fazer a conexão do signal emitido pelo Player
 	get_parent().connect("player_flipped", self, "_on_player_flipped")
