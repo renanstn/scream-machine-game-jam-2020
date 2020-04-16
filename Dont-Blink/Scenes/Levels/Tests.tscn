@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/Level_01.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Wallpaper2.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Effects/DarkEffect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Itens/ShortLamp.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Itens/OldBoxes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Itens/Box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Itens/Generator.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Itens/Barrel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Itens/Alavanca.tscn" type="PackedScene" id=10]
 
 [node name="Tests" type="Node2D"]
 
@@ -12,48 +18,72 @@
 [node name="Wallpaper" type="Sprite" parent="Wallpaper"]
 position = Vector2( 192, 512 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Wallpaper2" type="Sprite" parent="Wallpaper"]
 position = Vector2( 320, 512 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Wallpaper3" type="Sprite" parent="Wallpaper"]
 position = Vector2( 448, 512 )
 texture = ExtResource( 3 )
-
-[node name="Wallpaper8" type="Sprite" parent="Wallpaper"]
-position = Vector2( 576, 512 )
-texture = ExtResource( 3 )
-
-[node name="Wallpaper10" type="Sprite" parent="Wallpaper"]
-position = Vector2( 704, 512 )
-texture = ExtResource( 3 )
-
-[node name="Wallpaper6" type="Sprite" parent="Wallpaper"]
-position = Vector2( 192, 384 )
-texture = ExtResource( 3 )
-
-[node name="Wallpaper5" type="Sprite" parent="Wallpaper"]
-position = Vector2( 320, 384 )
-texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Wallpaper4" type="Sprite" parent="Wallpaper"]
-position = Vector2( 448, 384 )
+position = Vector2( 576, 512 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Wallpaper7" type="Sprite" parent="Wallpaper"]
-position = Vector2( 576, 384 )
+[node name="Wallpaper5" type="Sprite" parent="Wallpaper"]
+position = Vector2( 704, 512 )
 texture = ExtResource( 3 )
-
-[node name="Wallpaper9" type="Sprite" parent="Wallpaper"]
-position = Vector2( 704, 384 )
-texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 655383, 9, 0, 720899, 9, 0, 720919, 9, 0, 786435, 9, 0, 786455, 9, 0, 851971, 9, 0, 851991, 9, 0, 917507, 9, 0, 917508, 9, 0, 917509, 9, 0, 917510, 9, 0, 917511, 9, 0, 917512, 9, 0, 917527, 9, 0, 983043, 9, 0, 983063, 9, 0, 1048579, 9, 0, 1048599, 9, 0, 1114115, 9, 0, 1114135, 9, 0, 1179651, 12, 0, 1179652, 11, 0, 1179653, 10, 0, 1179654, 11, 0, 1179655, 11, 0, 1179656, 11, 0, 1179657, 11, 0, 1179658, 10, 0, 1179659, 10, 0, 1179660, 11, 0, 1179661, 11, 0, 1179662, 11, 0, 1179663, 10, 0, 1179664, 11, 0, 1179665, 11, 0, 1179666, 11, 0, 1179667, 10, 0, 1179668, 10, 0, 1179669, 10, 0, 1179670, 11, 0, 1179671, 11, 0 )
+tile_data = PoolIntArray( 917507, 9, 0, 917508, 9, 0, 917509, 9, 0, 917510, 9, 0, 917511, 9, 0, 917512, 9, 0, 917513, 9, 0, 917514, 9, 0, 917515, 9, 0, 917516, 9, 0, 917517, 9, 0, 917518, 9, 0, 917519, 9, 0, 917520, 9, 0, 917521, 9, 0, 917522, 9, 0, 917523, 9, 0, 917524, 9, 0, 917525, 9, 0, 917526, 9, 0, 917527, 9, 0, 983043, 9, 0, 983063, 9, 0, 1048579, 9, 0, 1048599, 9, 0, 1114115, 9, 0, 1114135, 9, 0, 1179651, 12, 0, 1179652, 11, 0, 1179653, 10, 0, 1179654, 11, 0, 1179655, 11, 0, 1179656, 11, 0, 1179657, 11, 0, 1179658, 10, 0, 1179659, 10, 0, 1179660, 11, 0, 1179661, 11, 0, 1179662, 11, 0, 1179663, 10, 0, 1179664, 11, 0, 1179665, 11, 0, 1179666, 11, 0, 1179667, 10, 0, 1179668, 10, 0, 1179669, 10, 0, 1179670, 11, 0, 1179671, 11, 0 )
+
+[node name="ObjectsBack" type="Node2D" parent="."]
+
+[node name="OldBoxes" parent="ObjectsBack" instance=ExtResource( 6 )]
+position = Vector2( 288, 576 )
+
+[node name="OldBoxes2" parent="ObjectsBack" instance=ExtResource( 6 )]
+position = Vector2( 544, 576 )
+
+[node name="Box" parent="ObjectsBack" instance=ExtResource( 7 )]
+position = Vector2( 288, 560 )
+
+[node name="Generator" parent="ObjectsBack" instance=ExtResource( 8 )]
+position = Vector2( 670.369, 556.941 )
+
+[node name="Barrel" parent="ObjectsBack" instance=ExtResource( 9 )]
+position = Vector2( 416, 576 )
+
+[node name="Barrel2" parent="ObjectsBack" instance=ExtResource( 9 )]
+position = Vector2( 176, 576 )
+
+[node name="Barrel3" parent="ObjectsBack" instance=ExtResource( 9 )]
+position = Vector2( 192, 576 )
+
+[node name="Barrel4" parent="ObjectsBack" instance=ExtResource( 9 )]
+position = Vector2( 208, 576 )
+
+[node name="Alavanca" parent="ObjectsBack" instance=ExtResource( 10 )]
+position = Vector2( 720, 576 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 544 )
@@ -61,3 +91,35 @@ WALK_SPEED = 100.0
 
 [node name="DarkEffect" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="ObjectsFront" type="Node2D" parent="."]
+
+[node name="ShortLamp" parent="ObjectsFront" instance=ExtResource( 5 )]
+position = Vector2( 224, 480 )
+
+[node name="ShortLamp2" parent="ObjectsFront" instance=ExtResource( 5 )]
+position = Vector2( 416, 480 )
+
+[node name="ShortLamp3" parent="ObjectsFront" instance=ExtResource( 5 )]
+position = Vector2( 608, 480 )
+
+[node name="Box2" parent="ObjectsFront" instance=ExtResource( 7 )]
+position = Vector2( 352, 576 )
+
+[node name="Box3" parent="ObjectsFront" instance=ExtResource( 7 )]
+position = Vector2( 384, 576 )
+
+[node name="Box4" parent="ObjectsFront" instance=ExtResource( 7 )]
+position = Vector2( 464, 576 )
+
+[node name="Box5" parent="ObjectsFront" instance=ExtResource( 7 )]
+position = Vector2( 464, 560 )
+
+[node name="Barrel5" parent="ObjectsFront" instance=ExtResource( 9 )]
+position = Vector2( 592, 576 )
+
+[node name="Barrel6" parent="ObjectsFront" instance=ExtResource( 9 )]
+position = Vector2( 592, 560 )
+
+[node name="Barrel7" parent="ObjectsFront" instance=ExtResource( 9 )]
+position = Vector2( 608, 576 )

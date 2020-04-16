@@ -4,3 +4,4 @@
 
 [node name="Box" type="Sprite"]
 texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )

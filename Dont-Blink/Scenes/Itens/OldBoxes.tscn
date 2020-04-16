@@ -3,4 +3,6 @@
 [ext_resource path="res://Sprites/Caixas_velhas.png" type="Texture" id=1]
 
 [node name="OldBoxes" type="Sprite"]
+position = Vector2( 0.0568848, 7.68095 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
