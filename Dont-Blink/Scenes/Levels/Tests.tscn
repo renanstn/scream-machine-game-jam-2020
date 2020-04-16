@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/Level_01.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Wallpaper2.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Effects/DarkEffect.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Itens/Collectable.tscn" type="PackedScene" id=5]
 
 [node name="Tests" type="Node2D"]
 
@@ -49,10 +48,6 @@ texture = ExtResource( 3 )
 [node name="Wallpaper9" type="Sprite" parent="Wallpaper"]
 position = Vector2( 704, 384 )
 texture = ExtResource( 3 )
-
-[node name="Collectable" parent="." instance=ExtResource( 5 )]
-position = Vector2( 352, 544 )
-dialog_ids = [ "item001" ]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
