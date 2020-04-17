@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Dont-Blink"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/stretch/mode="viewport"

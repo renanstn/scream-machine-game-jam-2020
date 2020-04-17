@@ -12,9 +12,9 @@ enum EVENT {
 	scare_glitches
 }
 
-var event = EVENT.scare_image
-var shader_static = false
-var shader_active = false
+var event
+var shader_static : bool = false
+var shader_active : bool = false
 
 signal time_left(time_left)
 signal max_value(value)
@@ -22,6 +22,11 @@ signal shader_static(on)
 
 func _ready():
 	yield(get_tree(), "idle_frame")
+	match Global.fear_level:
+		0:
+			event = EVENT.no_event
+		1:
+			event = EVENT.scare_image
 	timer.start()
 	emit_signal("max_value", timer.wait_time)
 
