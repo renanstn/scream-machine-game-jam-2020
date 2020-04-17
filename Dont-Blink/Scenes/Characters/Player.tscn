@@ -11,8 +11,8 @@
 [ext_resource path="res://Scenes/Shaders/ShaderStatic.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 6.03727
-height = 19.9174
+radius = 5.28255
+height = 19.0536
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -62,6 +62,7 @@ scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.897453, 1.25643 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

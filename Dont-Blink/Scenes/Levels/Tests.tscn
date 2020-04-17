@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemaps/Level_01.tres" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Scenes/Itens/Generator.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Itens/Barrel.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Itens/Alavanca.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Tests/TestEmitter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Itens/Door.tscn" type="PackedScene" id=12]
 
 [node name="Tests" type="Node2D"]
 
@@ -54,7 +56,7 @@ __meta__ = {
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 917507, 9, 0, 917508, 9, 0, 917509, 9, 0, 917510, 9, 0, 917511, 9, 0, 917512, 9, 0, 917513, 9, 0, 917514, 9, 0, 917515, 9, 0, 917516, 9, 0, 917517, 9, 0, 917518, 9, 0, 917519, 9, 0, 917520, 9, 0, 917521, 9, 0, 917522, 9, 0, 917523, 9, 0, 917524, 9, 0, 917525, 9, 0, 917526, 9, 0, 917527, 9, 0, 983043, 9, 0, 983063, 9, 0, 1048579, 9, 0, 1048599, 9, 0, 1114115, 9, 0, 1114135, 9, 0, 1179651, 12, 0, 1179652, 11, 0, 1179653, 10, 0, 1179654, 11, 0, 1179655, 11, 0, 1179656, 11, 0, 1179657, 11, 0, 1179658, 10, 0, 1179659, 10, 0, 1179660, 11, 0, 1179661, 11, 0, 1179662, 11, 0, 1179663, 10, 0, 1179664, 11, 0, 1179665, 11, 0, 1179666, 11, 0, 1179667, 10, 0, 1179668, 10, 0, 1179669, 10, 0, 1179670, 11, 0, 1179671, 11, 0 )
+tile_data = PoolIntArray( 917507, 9, 0, 917508, 9, 0, 917509, 9, 0, 917510, 9, 0, 917511, 9, 0, 917512, 9, 0, 917513, 9, 0, 917514, 9, 0, 917515, 9, 0, 917516, 9, 0, 917517, 9, 0, 917518, 9, 0, 917519, 9, 0, 917520, 9, 0, 917521, 9, 0, 917522, 9, 0, 917523, 9, 0, 917524, 9, 0, 917525, 9, 0, 917526, 9, 0, 917527, 9, 0, 983043, 9, 0, 983063, 9, 0, 1048579, 9, 0, 1048599, 9, 0, 1114135, 9, 0, 1179651, 12, 0, 1179652, 11, 0, 1179653, 10, 0, 1179654, 11, 0, 1179655, 11, 0, 1179656, 11, 0, 1179657, 11, 0, 1179658, 10, 0, 1179659, 10, 0, 1179660, 11, 0, 1179661, 11, 0, 1179662, 11, 0, 1179663, 10, 0, 1179664, 11, 0, 1179665, 11, 0, 1179666, 11, 0, 1179667, 10, 0, 1179668, 10, 0, 1179669, 10, 0, 1179670, 11, 0, 1179671, 11, 0 )
 
 [node name="ObjectsBack" type="Node2D" parent="."]
 
@@ -123,3 +125,9 @@ position = Vector2( 592, 560 )
 
 [node name="Barrel7" parent="ObjectsFront" instance=ExtResource( 9 )]
 position = Vector2( 608, 576 )
+
+[node name="Door" parent="ObjectsFront" instance=ExtResource( 12 )]
+position = Vector2( 112, 560 )
+
+[node name="TestEmitter" parent="." instance=ExtResource( 11 )]
+[connection signal="test" from="TestEmitter" to="ObjectsFront/Door" method="_on_TestEmitter_test"]

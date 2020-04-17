@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Tilemaps/Level_01.tres" type="TileSet" id=1]
+[ext_resource path="res://Sprites/Wallpaper2.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Itens/Generator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Itens/OldBoxes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Itens/Box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Itens/Alavanca.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Itens/Barrel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Itens/ShortLamp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Effects/DarkEffect.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Itens/Door.tscn" type="PackedScene" id=11]
+
+[node name="Game" type="Node2D"]
+
+[node name="Wallpaper" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Wallpaper"]
+position = Vector2( 160, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Wallpaper"]
+position = Vector2( 32, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Wallpaper"]
+position = Vector2( -96, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Wallpaper"]
+position = Vector2( -224, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="Wallpaper"]
+position = Vector2( -352, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="Wallpaper"]
+position = Vector2( -480, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="Wallpaper"]
+position = Vector2( -608, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Wallpaper"]
+position = Vector2( -736, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite12" type="Sprite" parent="Wallpaper"]
+position = Vector2( -864, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite11" type="Sprite" parent="Wallpaper"]
+position = Vector2( -992, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite10" type="Sprite" parent="Wallpaper"]
+position = Vector2( -1120, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="Wallpaper"]
+position = Vector2( -1248, -48 )
+texture = ExtResource( 2 )
+
+[node name="Sprite13" type="Sprite" parent="Wallpaper"]
+position = Vector2( -1376, -48 )
+texture = ExtResource( 2 )
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="ShortLamp" parent="Lights" instance=ExtResource( 9 )]
+position = Vector2( -128, -96 )
+
+[node name="ShortLamp2" parent="Lights" instance=ExtResource( 9 )]
+position = Vector2( 112, -96 )
+
+[node name="ItensBack" type="Node2D" parent="."]
+
+[node name="Generator" parent="ItensBack" instance=ExtResource( 4 )]
+position = Vector2( -176, -18.8239 )
+
+[node name="OldBoxes" parent="ItensBack" instance=ExtResource( 5 )]
+position = Vector2( 32, 0 )
+
+[node name="OldBoxes2" parent="ItensBack" instance=ExtResource( 5 )]
+position = Vector2( -64, 0 )
+
+[node name="Alavanca" parent="ItensBack" instance=ExtResource( 7 )]
+position = Vector2( -128, 0 )
+
+[node name="Barrel" parent="ItensBack" instance=ExtResource( 8 )]
+position = Vector2( 208, 0 )
+
+[node name="Barrel2" parent="ItensBack" instance=ExtResource( 8 )]
+position = Vector2( 192, 0 )
+
+[node name="Barrel3" parent="ItensBack" instance=ExtResource( 8 )]
+position = Vector2( 160, 0 )
+
+[node name="Barrel4" parent="ItensBack" instance=ExtResource( 8 )]
+position = Vector2( 208, -16 )
+
+[node name="Door" parent="ItensBack" instance=ExtResource( 11 )]
+position = Vector2( -240, -16 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -196652, 12, 0, -196651, 11, 0, -196650, 11, 0, -196649, 11, 0, -196648, 11, 0, -196647, 11, 0, -196646, 11, 0, -196645, 11, 0, -196644, 11, 0, -196643, 11, 0, -196642, 11, 0, -196641, 11, 0, -196640, 11, 0, -196639, 11, 0, -196638, 11, 0, -196637, 11, 0, -196636, 11, 0, -196635, 11, 0, -196634, 11, 0, -196633, 11, 0, -196632, 11, 0, -196631, 11, 0, -196630, 11, 0, -196629, 11, 0, -196628, 11, 0, -196627, 11, 0, -196626, 11, 0, -196625, 11, 0, -196624, 11, 0, -196623, 11, 0, -196622, 11, 0, -196621, 11, 0, -196620, 11, 0, -196619, 11, 0, -196618, 11, 0, -196617, 11, 0, -196616, 11, 0, -196615, 11, 0, -196614, 11, 0, -196613, 11, 0, -196612, 11, 0, -196611, 11, 0, -196610, 11, 0, -196609, 11, 0, -262144, 11, 0, -262143, 11, 0, -262142, 11, 0, -262141, 11, 0, -262140, 11, 0, -262139, 11, 0, -262138, 11, 0, -262137, 13, 0, -131116, 9, 0, -131101, 9, 0, -131080, 9, 0, -196601, 9, 0, -65580, 9, 0, -65565, 9, 0, -65544, 9, 0, -131065, 9, 0, -44, 9, 0, -65529, 9, 0, 65492, 12, 0, 65493, 11, 0, 65494, 11, 0, 65495, 11, 0, 65496, 11, 0, 65497, 11, 0, 65498, 11, 0, 65499, 11, 0, 65500, 11, 0, 65501, 11, 0, 65502, 11, 0, 65503, 11, 0, 65504, 11, 0, 65505, 11, 0, 65506, 11, 0, 65507, 11, 0, 65508, 11, 0, 65509, 11, 0, 65510, 11, 0, 65511, 11, 0, 65512, 11, 0, 65513, 11, 0, 65514, 11, 0, 65515, 11, 0, 65516, 11, 0, 65517, 11, 0, 65518, 11, 0, 65519, 11, 0, 65520, 11, 0, 65521, 11, 0, 65522, 11, 0, 65523, 11, 0, 65524, 11, 0, 65525, 11, 0, 65526, 11, 0, 65527, 11, 0, 65528, 11, 0, 65529, 11, 0, 65530, 11, 0, 65531, 11, 0, 65532, 11, 0, 65533, 11, 0, 65534, 11, 0, 65535, 11, 0, 0, 11, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 13, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, -16 )
+WALK_SPEED = 100.0
+
+[node name="ItensFront" type="Node2D" parent="."]
+
+[node name="Box" parent="ItensFront" instance=ExtResource( 6 )]
+position = Vector2( -32, 0 )
+
+[node name="Box2" parent="ItensFront" instance=ExtResource( 6 )]
+position = Vector2( 96, 0 )
+
+[node name="Box3" parent="ItensFront" instance=ExtResource( 6 )]
+position = Vector2( 112, 0 )
+
+[node name="Box4" parent="ItensFront" instance=ExtResource( 6 )]
+position = Vector2( 112, -16 )
+
+[node name="DarkEffect" parent="." instance=ExtResource( 10 )]
+visible = false
