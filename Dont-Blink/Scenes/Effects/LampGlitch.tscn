@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 95.1344, 31.7643 )
+extents = Vector2( 95.1344, 63.2553 )
 
 [node name="LampGlitch" type="Area2D"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 64 )
 shape = SubResource( 1 )

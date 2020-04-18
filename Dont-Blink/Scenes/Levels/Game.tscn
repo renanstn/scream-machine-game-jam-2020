@@ -281,6 +281,18 @@ texture = ExtResource( 2 )
 [node name="ShortLamp" parent="Lights" instance=ExtResource( 9 )]
 position = Vector2( -128, -128 )
 
+[node name="ShortLamp3" parent="Lights" instance=ExtResource( 9 )]
+position = Vector2( -384, -128 )
+
+[node name="ShortLamp4" parent="Lights" instance=ExtResource( 9 )]
+position = Vector2( -512, -128 )
+
+[node name="ShortLamp5" parent="Lights" instance=ExtResource( 9 )]
+position = Vector2( -640, -128 )
+
+[node name="ShortLamp6" parent="Lights" instance=ExtResource( 9 )]
+position = Vector2( -768, -128 )
+
 [node name="ShortLamp2" parent="Lights" instance=ExtResource( 9 )]
 position = Vector2( 112, -128 )
 
