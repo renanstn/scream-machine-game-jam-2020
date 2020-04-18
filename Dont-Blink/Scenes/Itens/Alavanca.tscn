@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Alavanca.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Alavanca.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/alavanca.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.0091, 6.98914 )
 
 [node name="Alavanca" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -15,3 +18,6 @@ hframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 1 )
+
+[node name="AlavancaSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

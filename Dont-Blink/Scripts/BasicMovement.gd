@@ -53,15 +53,26 @@ func _process(delta):
 			if item.has_method("dialog"):
 				var key = item.dialog()
 				call_dialog_box(key)
+			# Verifica se é uma alavanca
+			if item.has_method("open_door"):
+				item.open_door()
+				get_tree().call_group("door", "open_door", item.door_to_open)
 
 	# Teste
-	if Input.is_action_just_pressed("test"):
-		var key = ["intro001", "intro002", "intro003"]
-		call_dialog_box(key)
+#	if Input.is_action_just_pressed("test"):
+#		var key = ["intro001", "intro002", "intro003"]
+#		call_dialog_box(key)
 
 func _physics_process(delta):
+#	if Input.is_action_pressed("test"):
+#		var vetor = Vector2(0, -50)
+#		move_and_slide(vetor)
+#		return
 	if can_control:
-		motion.y += GRAVITY
+		if Input.is_action_pressed("test"):
+			motion.y = -18
+		else:
+			motion.y += GRAVITY
 		motion = transform_inputs_in_motion()
 		motion = move_and_slide(motion, UP)
 		emit_signals(motion)

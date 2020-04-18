@@ -58,8 +58,9 @@ JUMP_FORCE = 400.0
 CAN_JUMP = false
 
 [node name="Light2D" type="Light2D" parent="."]
-scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
+texture_scale = 1.5
+energy = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.897453, 1.25643 )
