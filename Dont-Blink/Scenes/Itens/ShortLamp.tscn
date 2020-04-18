@@ -15,6 +15,7 @@ position = Vector2( 0, 2.26476 )
 scale = Vector2( 1.5, 2 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 39 )
+color = Color( 1, 0.976471, 0.615686, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -32,6 +33,7 @@ volume_db = -15.0
 [node name="Light2D2" type="Light2D" parent="."]
 texture = ExtResource( 4 )
 offset = Vector2( 0, 16 )
+color = Color( 1, 0.976471, 0.615686, 1 )
 [connection signal="body_entered" from="LampGlitch" to="." method="_on_LampGlitch_body_entered"]
 [connection signal="body_exited" from="LampGlitch" to="." method="_on_LampGlitch_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
