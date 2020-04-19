@@ -20,6 +20,7 @@ var shader_active : bool = false
 signal time_left(time_left)
 signal max_value(value)
 signal shader_static(on)
+signal blink
 
 func _ready():
 	yield(get_tree(), "idle_frame")
@@ -47,6 +48,7 @@ func blink():
 			play_events()
 	blink_sound.play()
 	anim_player.play("Blink")
+	emit_signal("blink")
 	timer.start()
 
 func pause_timer():
@@ -63,6 +65,7 @@ func play_events():
 	Aplica o evento ao piscar
 	"""
 	if event == EVENT.scare_image:
+		Global.event_happening = true
 		shader_active = true
 		shader_static = true
 		scare_sprite.show()
@@ -77,3 +80,4 @@ func turn_off_shaders():
 		shader_static = false
 		emit_signal("shader_static", shader_static)
 	shader_active = false
+	Global.event_happening = false

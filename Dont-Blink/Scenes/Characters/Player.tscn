@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Sprites/Klin B.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BasicMovement.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/Light.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Shaders/ShaderStatic.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/exclamation.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Shaders/Blur.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.28255
@@ -98,6 +99,9 @@ visible = false
 [node name="ShaderStatic" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
 
+[node name="Blur" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
 [node name="StepSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
@@ -121,9 +125,11 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 [connection signal="hide_hud" from="." to="CanvasLayer/HUD" method="_on_Player_hide_hud"]
 [connection signal="show_hud" from="." to="CanvasLayer/HUD" method="_on_Player_show_hud"]
+[connection signal="blink" from="CanvasLayer/Blink" to="CanvasLayer/Blur" method="_on_Blink_blink"]
 [connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
 [connection signal="shader_static" from="CanvasLayer/Blink" to="CanvasLayer/ShaderStatic" method="_on_Blink_shader_static"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
+[connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/Blur" method="_on_Blink_time_left"]
 [connection signal="timeout" from="TimeEachStep" to="." method="_on_TimeEachStep_timeout"]
 [connection signal="area_entered" from="InteractiveArea" to="." method="_on_InteractiveArea_area_entered"]
 [connection signal="area_exited" from="InteractiveArea" to="." method="_on_InteractiveArea_area_exited"]

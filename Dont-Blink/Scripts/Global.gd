@@ -4,6 +4,7 @@ extends Node
 const PATH_SAVE = "user://savegame.save"
 var data : Dictionary
 var fear_level : int = 0
+var event_happening : bool = false
 # 0: No events
 # 1: Scare image
 # 2: Glitches
