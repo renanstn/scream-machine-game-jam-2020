@@ -185,6 +185,7 @@ id = 4
 
 [node name="Elevador" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1056, 528 )
+MAX_FLOOR = 4
 
 [node name="ElevatorFloor" parent="." instance=ExtResource( 15 )]
 position = Vector2( -1056, 368 )

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const SPEED = 18
-const MAX_FLOOR = 4
+export(int) var MAX_FLOOR
 
 onready var timer = $Timer
 onready var light = $Light2D
