@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const SPEED = 18
 export(int) var MAX_FLOOR
+export(String) var floor_group
 
 onready var timer = $Timer
 onready var light = $Light2D
@@ -20,7 +21,7 @@ var floor_positions = {}
 
 func _ready():
 	# Salvar as posições globais dos andares
-	var floor_markers = get_tree().get_nodes_in_group("floor")
+	var floor_markers = get_tree().get_nodes_in_group(floor_group)
 	for marker in floor_markers:
 		floor_positions[marker.floor_number] = marker.global_position
 
@@ -57,6 +58,7 @@ func _physics_process(delta):
 			arrive()
 
 func change_floor(floor_number):
+	print("call")
 	if floor_number >= 0 and floor_number < MAX_FLOOR:
 		desired_floor = floor_number
 		if desired_floor > actual_floor:

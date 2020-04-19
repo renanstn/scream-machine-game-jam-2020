@@ -32,6 +32,7 @@ var max_speed : float = WALK_SPEED
 var looking_to_right : bool = true
 var can_play_footstep : bool = true
 var can_control : bool = true
+var elevator_names = ["Elevador", "Elevador2"]
 
 signal is_walking
 signal is_idle
@@ -63,7 +64,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("up"):
 		var itens = interactive_area.get_overlapping_areas()
 		for item in itens:
-			if item.get_parent().name == "Elevador" and not item.get_parent().working:
+			if item.get_parent().name in elevator_names and not item.get_parent().working:
 				var actual_floor = item.get_parent().actual_floor
 				item.get_parent().change_floor(actual_floor + 1)
 
@@ -71,7 +72,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("down"):
 		var itens = interactive_area.get_overlapping_areas()
 		for item in itens:
-			if item.get_parent().name == "Elevador" and not item.get_parent().working:
+			if item.get_parent().name in elevator_names and not item.get_parent().working:
 				var actual_floor = item.get_parent().actual_floor
 				item.get_parent().change_floor(actual_floor - 1)
 
