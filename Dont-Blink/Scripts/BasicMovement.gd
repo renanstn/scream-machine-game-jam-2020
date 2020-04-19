@@ -76,9 +76,9 @@ func _process(delta):
 				item.get_parent().change_floor(actual_floor - 1)
 
 	# Teste
-#	if Input.is_action_just_pressed("test"):
-#		var key = ["intro001", "intro002", "intro003"]
-#		call_dialog_box(key)
+	if Input.is_action_just_pressed("test"):
+		var key = ["intro001", "intro002", "intro003"]
+		call_dialog_box(key)
 
 func _physics_process(delta):
 	if can_control:
