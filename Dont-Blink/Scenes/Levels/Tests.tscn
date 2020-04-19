@@ -67,6 +67,7 @@ position = Vector2( 712, 576 )
 [node name="Alavanca" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( 256, 576 )
 door_to_open = 1
+change_fear_level = true
 
 [node name="Alavanca2" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -64, 576 )
