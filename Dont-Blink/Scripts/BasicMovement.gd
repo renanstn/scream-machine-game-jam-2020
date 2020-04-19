@@ -17,6 +17,7 @@ export (bool) var CAN_WALK = true
 export (bool) var CAN_SPRINT = true
 export (bool) var CAN_JUMP = true
 export (bool) var CAN_FLY = false
+export (PackedScene) var monster_scene
 
 onready var animation_player = $AnimationPlayer
 onready var sprite = $Sprite
@@ -26,6 +27,10 @@ onready var dialog = $CanvasLayer/DialogBox
 onready var blink = $CanvasLayer/Blink
 onready var interactive_area = $InteractiveArea
 onready var alert_sprite = $AlertSprite
+onready var monster_spawn_01_left = $Level1_MonsterSpawnLeft
+onready var monster_spawn_01_right = $Level1_MonsterSpawnRight
+onready var monster_spawn_02_left = $Level2_MonsterSpawnLeft
+onready var monster_spawn_02_right = $Level2_MonsterSpawnRight
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
@@ -33,6 +38,8 @@ var looking_to_right : bool = true
 var can_play_footstep : bool = true
 var can_control : bool = true
 var elevator_names = ["Elevador", "Elevador2"]
+var monster_spawn_01 : Array
+var monster_spawn_02 : Array
 
 signal is_walking
 signal is_idle
@@ -46,6 +53,10 @@ signal hide_hud
 signal show_hud
 
 # ========================================================================
+func _ready():
+	monster_spawn_01 = [monster_spawn_01_left, monster_spawn_01_right]
+	monster_spawn_02 = [monster_spawn_02_left, monster_spawn_02_right]
+
 func _process(delta):
 	# Interação com itens
 	if Input.is_action_just_pressed("interact"):
@@ -210,3 +221,27 @@ func _on_InteractiveArea_area_exited(area):
 	"""
 	if area.is_in_group("interactive"):
 		alert_sprite.hide()
+
+func _on_Blink_spawn_monster():
+	"""
+	Spawna o monstro, fora do limite da câmera, e faz ele desaparecer
+	segundos após o player ver ele
+	"""
+	var monster_instance = monster_scene.instance()
+	# Sortear se o monstro parecerá na direita ou na esquerda
+	var spawn_index = randi() % monster_spawn_01.size()
+	var spawn_position = monster_spawn_01[spawn_index].global_position
+	# Ajustar a posição dele pra mesma posição dos marcadores
+	monster_instance.global_position = spawn_position
+	# Ajustar o flip_H
+	if monster_instance.global_position.x > global_position.x:
+		monster_instance.scale.x = -1
+	# Adicionar a cena
+#	monster_instance.set_time_visible(2)
+	get_parent().add_child(monster_instance)
+
+func _on_Blink_spawn_monster_running():
+	pass # Replace with function body.
+
+func _on_Blink_spawn_monster_walking():
+	pass # Replace with function body.

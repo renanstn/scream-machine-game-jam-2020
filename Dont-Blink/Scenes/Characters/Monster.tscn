@@ -9,8 +9,8 @@
 [ext_resource path="res://Sprites/Monster/perna_esquerda.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Monster.gd" type="Script" id=8]
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 9.35061, 25.0392 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.35061, 24.6367 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -457,14 +457,13 @@ tracks/11/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 120.888, 34.8318 )
 
 [node name="Monster" type="KinematicBody2D"]
 script = ExtResource( 8 )
 
 [node name="Body" type="Node2D" parent="."]
-position = Vector2( 0.614716, 2.38967 )
 
 [node name="Mao_D" type="Sprite" parent="Body"]
 position = Vector2( 9.21122, -30.7535 )
@@ -501,9 +500,8 @@ texture = ExtResource( 3 )
 offset = Vector2( -1.476, -9.56374 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, -25 )
-shape = SubResource( 5 )
+position = Vector2( 0, -27 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
@@ -514,4 +512,8 @@ anims/walking = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FearArea"]
 position = Vector2( 0, -25 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
+
+[node name="TimerVisible" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="timeout" from="TimerVisible" to="." method="_on_TimerVisible_timeout"]

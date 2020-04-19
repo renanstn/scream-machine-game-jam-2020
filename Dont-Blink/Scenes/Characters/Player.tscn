@@ -123,11 +123,26 @@ material = SubResource( 5 )
 position = Vector2( 0, -32 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
+
+[node name="Level1_MonsterSpawnLeft" type="Position2D" parent="."]
+position = Vector2( -288, 0 )
+
+[node name="Level2_MonsterSpawnLeft" type="Position2D" parent="."]
+position = Vector2( -160, 0 )
+
+[node name="Level1_MonsterSpawnRight" type="Position2D" parent="."]
+position = Vector2( 288, 0 )
+
+[node name="Level2_MonsterSpawnRight" type="Position2D" parent="."]
+position = Vector2( 160, 0 )
 [connection signal="hide_hud" from="." to="CanvasLayer/HUD" method="_on_Player_hide_hud"]
 [connection signal="show_hud" from="." to="CanvasLayer/HUD" method="_on_Player_show_hud"]
 [connection signal="blink" from="CanvasLayer/Blink" to="CanvasLayer/Blur" method="_on_Blink_blink"]
 [connection signal="max_value" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_max_value"]
 [connection signal="shader_static" from="CanvasLayer/Blink" to="CanvasLayer/ShaderStatic" method="_on_Blink_shader_static"]
+[connection signal="spawn_monster" from="CanvasLayer/Blink" to="." method="_on_Blink_spawn_monster"]
+[connection signal="spawn_monster_running" from="CanvasLayer/Blink" to="." method="_on_Blink_spawn_monster_running"]
+[connection signal="spawn_monster_walking" from="CanvasLayer/Blink" to="." method="_on_Blink_spawn_monster_walking"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/Blur" method="_on_Blink_time_left"]
 [connection signal="time_left" from="CanvasLayer/Blink" to="CanvasLayer/HUD" method="_on_Blink_time_left"]
 [connection signal="timeout" from="TimeEachStep" to="." method="_on_TimeEachStep_timeout"]
