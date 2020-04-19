@@ -67,18 +67,22 @@ position = Vector2( 712, 576 )
 [node name="Alavanca" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( 256, 576 )
 door_to_open = 1
+change_fear_level = true
 
 [node name="Alavanca2" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -64, 576 )
 door_to_open = 2
+change_fear_level = true
 
 [node name="Alavanca3" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -334.369, 579.059 )
 door_to_open = 3
+change_fear_level = true
 
 [node name="Alavanca4" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -590.369, 579.059 )
 door_to_open = 4
+change_fear_level = true
 
 [node name="Door" parent="ObjectsBack" instance=ExtResource( 14 )]
 position = Vector2( -1008, 560 )
