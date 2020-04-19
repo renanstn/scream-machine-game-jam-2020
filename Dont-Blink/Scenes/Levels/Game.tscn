@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilemaps/Level_01.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/Wallpaper2.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Itens/Elevador.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Itens/ElevatorDoor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Itens/ElevatorFloor.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Characters/Monster.tscn" type="PackedScene" id=15]
 
 [node name="Game" type="Node2D"]
 
@@ -374,8 +375,10 @@ tile_data = PoolIntArray( -1966150, 9, 0, -1966149, 9, 0, -1966148, 9, 0, -19661
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 72, -16 )
+JUMP_FORCE = 290.0
 WALK_SPEED = 100.0
 SPRINT_SPEED = 50.0
+monster_scene = ExtResource( 15 )
 
 [node name="ItensFront" type="Node2D" parent="."]
 
