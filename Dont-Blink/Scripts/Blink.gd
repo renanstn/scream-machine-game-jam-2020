@@ -3,6 +3,7 @@ extends TextureRect
 onready var anim_player = $AnimationPlayer
 onready var blink_sound = $AudioStreamPlayer
 onready var timer = $TimerBlink
+onready var timer_glitch = $TimerGlitch
 onready var timer_scare = $TimerScareImg
 onready var scare_sprite = $ScareSprite
 
@@ -13,7 +14,7 @@ enum EVENT {
 }
 
 var event = EVENT.no_event
-var event_chance : float = 10 # Valor em porcentagem
+var event_chance : float = 1 # Valor em porcentagem
 var shader_static : bool = false
 var shader_active : bool = false
 
@@ -70,6 +71,7 @@ func play_events():
 		shader_static = true
 		scare_sprite.show()
 		timer_scare.start()
+		timer_glitch.start()
 		emit_signal("shader_static", shader_static)
 
 func turn_off_shaders():
@@ -81,3 +83,6 @@ func turn_off_shaders():
 		emit_signal("shader_static", shader_static)
 	shader_active = false
 	Global.event_happening = false
+
+func _on_TimerGlitch_timeout():
+	turn_off_shaders()
