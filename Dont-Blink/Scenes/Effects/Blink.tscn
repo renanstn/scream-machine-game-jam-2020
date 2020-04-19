@@ -64,4 +64,8 @@ texture = ExtResource( 4 )
 process_mode = 0
 wait_time = 0.04
 one_shot = true
+
+[node name="TimerGlitch" type="Timer" parent="."]
+one_shot = true
 [connection signal="timeout" from="TimerScareImg" to="." method="_on_TimerScareImg_timeout"]
+[connection signal="timeout" from="TimerGlitch" to="." method="_on_TimerGlitch_timeout"]
