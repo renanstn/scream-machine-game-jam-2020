@@ -18,7 +18,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="Wallpaper" type="TextureRect" parent="."]
-margin_left = -1376.0
+margin_left = -2240.0
 margin_top = -768.0
 margin_right = 224.0
 margin_bottom = 32.0
