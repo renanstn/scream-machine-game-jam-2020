@@ -12,7 +12,8 @@ enum EVENT {
 	scare_glitches
 }
 
-var event
+var event = EVENT.no_event
+var event_chance : float = 10 # Valor em porcentagem
 var shader_static : bool = false
 var shader_active : bool = false
 
@@ -22,24 +23,28 @@ signal shader_static(on)
 
 func _ready():
 	yield(get_tree(), "idle_frame")
+	timer.start()
+	emit_signal("max_value", timer.wait_time)
+
+func _process(delta):
 	match Global.fear_level:
 		0:
 			event = EVENT.no_event
 		1:
 			event = EVENT.scare_image
-	timer.start()
-	emit_signal("max_value", timer.wait_time)
 
-func _process(delta):
 	emit_signal("time_left", timer.time_left)
 	if Input.is_action_just_pressed("blink") and not anim_player.is_playing():
 		blink()
 
 func blink():
+	# Limpa os efeitos caso algum esteja ativo
 	if shader_active:
 		turn_off_shaders()
 	else:
-		play_events()
+		var chance_evento = rand_range(0, 10)
+		if chance_evento < event_chance:
+			play_events()
 	blink_sound.play()
 	anim_player.play("Blink")
 	timer.start()
@@ -54,6 +59,9 @@ func _on_TimerScareImg_timeout():
 	scare_sprite.hide()
 
 func play_events():
+	"""
+	Aplica o evento ao piscar
+	"""
 	if event == EVENT.scare_image:
 		shader_active = true
 		shader_static = true
@@ -62,6 +70,9 @@ func play_events():
 		emit_signal("shader_static", shader_static)
 
 func turn_off_shaders():
+	"""
+	Verifica qual shader está ativo, e o desliga
+	"""
 	if shader_static:
 		shader_static = false
 		emit_signal("shader_static", shader_static)

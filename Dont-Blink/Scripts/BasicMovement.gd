@@ -25,6 +25,7 @@ onready var timer_step = $TimeEachStep
 onready var dialog = $CanvasLayer/DialogBox
 onready var blink = $CanvasLayer/Blink
 onready var interactive_area = $InteractiveArea
+onready var alert_sprite = $AlertSprite
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
@@ -58,26 +59,37 @@ func _process(delta):
 				item.open_door()
 				get_tree().call_group("door", "open_door", item.door_to_open)
 
+	# Aperta botão UP no elevador
+	if Input.is_action_just_pressed("up"):
+		var itens = interactive_area.get_overlapping_areas()
+		for item in itens:
+			if item.get_parent().name == "Elevador" and not item.get_parent().working:
+				var actual_floor = item.get_parent().actual_floor
+				item.get_parent().change_floor(actual_floor + 1)
+
+	# Aperta botão DOWN no elevador
+	if Input.is_action_just_pressed("down"):
+		var itens = interactive_area.get_overlapping_areas()
+		for item in itens:
+			if item.get_parent().name == "Elevador" and not item.get_parent().working:
+				var actual_floor = item.get_parent().actual_floor
+				item.get_parent().change_floor(actual_floor - 1)
+
 	# Teste
 #	if Input.is_action_just_pressed("test"):
 #		var key = ["intro001", "intro002", "intro003"]
 #		call_dialog_box(key)
 
 func _physics_process(delta):
-#	if Input.is_action_pressed("test"):
-#		var vetor = Vector2(0, -50)
-#		move_and_slide(vetor)
-#		return
 	if can_control:
-		if Input.is_action_pressed("test"):
-			motion.y = -18
-		else:
-			motion.y += GRAVITY
+		motion.y += GRAVITY
 		motion = transform_inputs_in_motion()
 		motion = move_and_slide(motion, UP)
 		emit_signals(motion)
 		animate()
 		emit_sound()
+	else:
+		motion = move_and_slide(motion, UP)
 
 func transform_inputs_in_motion() -> Vector2:
 	var friction : bool = false
@@ -182,3 +194,18 @@ func call_dialog_box(ids : Array):
 	blink.unpause_timer()
 	dialog.hide()
 	emit_signal("show_hud")
+
+
+func _on_InteractiveArea_area_entered(area):
+	"""
+	Exibe icone de alerta quando o player caminha numa área interativa
+	"""
+	if area.is_in_group("interactive"):
+		alert_sprite.show()
+
+func _on_InteractiveArea_area_exited(area):
+	"""
+	Oculta ícone de alerta quando o player sai de uma área interativa
+	"""
+	if area.is_in_group("interactive"):
+		alert_sprite.hide()

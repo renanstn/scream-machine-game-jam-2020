@@ -7,7 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.0091, 6.98914 )
 
-[node name="Alavanca" type="Area2D"]
+[node name="Alavanca" type="Area2D" groups=[
+"interactive",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
