@@ -54,6 +54,7 @@ signal show_hud
 
 # ========================================================================
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	monster_spawn_01 = [monster_spawn_01_left, monster_spawn_01_right]
 	monster_spawn_02 = [monster_spawn_02_left, monster_spawn_02_right]
 

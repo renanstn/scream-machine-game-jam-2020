@@ -515,5 +515,5 @@ position = Vector2( 0, -25 )
 shape = SubResource( 5 )
 
 [node name="TimerVisible" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 [connection signal="timeout" from="TimerVisible" to="." method="_on_TimerVisible_timeout"]
