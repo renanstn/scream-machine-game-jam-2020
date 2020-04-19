@@ -14,7 +14,7 @@ enum EVENT {
 }
 
 var event = EVENT.no_event
-var event_chance : float = 1 # Valor em porcentagem
+var event_chance : float = 2 # Valor em porcentagem
 var shader_static : bool = false
 var shader_active : bool = false
 
