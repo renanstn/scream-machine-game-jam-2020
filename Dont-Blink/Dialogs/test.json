@@ -1,7 +1,9 @@
 {
-    "intro001": {"name": "CharTest", "text": "Bla bla bla 1"},
-    "intro002": {"name": "CharTest", "text": "Bla bla bla 2"},
-    "intro003": {"name": "CharTest", "text": "Bla bla bla 3"},
+    "intro001": {"name": "CharTest", "text": "Something is wrong with this place"},
+    "intro002": {"name": "CharTest", "text": "I need to get out of here, fast!"},
+    "intro003": {"name": "CharTest", "text": "Use [A] and [D] to move me around, [space] to jump and [shift] to sprint"},
+    "intro004": {"name": "CharTest", "text": "Use [E] to interact with levers, each lever open a door!"},
+    "intro005": {"name": "CharTest", "text": "And don't forget to blink with [left mouse button], I don't have iron eyes!"},
 
     "item001": {"name": "Alavanca", "text": "Voce acessou uma fala do item"}
 }

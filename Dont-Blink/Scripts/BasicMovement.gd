@@ -57,6 +57,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	monster_spawn_01 = [monster_spawn_01_left, monster_spawn_01_right]
 	monster_spawn_02 = [monster_spawn_02_left, monster_spawn_02_right]
+	var key = ["intro001", "intro002", "intro003", "intro004", "intro005"]
+	call_dialog_box(key)
 
 func _process(delta):
 	# Interação com itens
@@ -87,11 +89,6 @@ func _process(delta):
 			if item.get_parent().name in elevator_names and not item.get_parent().working:
 				var actual_floor = item.get_parent().actual_floor
 				item.get_parent().change_floor(actual_floor - 1)
-
-	# Teste
-	if Input.is_action_just_pressed("test"):
-		var key = ["intro001", "intro002", "intro003"]
-		call_dialog_box(key)
 
 func _physics_process(delta):
 	if can_control:
