@@ -8,3 +8,7 @@ Jogo criado para a Game JAM [SCREAM MACHINE](https://itch.io/jam/scream-machine)
 # Screenshots
 
 ![001](https://github.com/Doc-McCoy/scream-machine-game-jam-2020/blob/master/screenshots/screenshot01.png)
+
+![002](https://github.com/Doc-McCoy/scream-machine-game-jam-2020/blob/master/screenshots/screenshot03.png)
+
+![003](https://github.com/Doc-McCoy/scream-machine-game-jam-2020/blob/master/screenshots/screenshot04.png)
