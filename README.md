@@ -2,8 +2,14 @@
 
 Jogo criado para a Game JAM [SCREAM MACHINE](https://itch.io/jam/scream-machine)
 
+Alpha já disponível [aqui](https://docmccoy.itch.io/dont-blink)
+
 - Foco: Terror
 - Tema: Máquina
+
+# Desenvolvimento
+
+Este jogo foi feito em parceria com o [Matheus Poro](https://github.com/KLporo). Ele é o autor de todos os sprites e level design do game.
 
 # Screenshots
 
