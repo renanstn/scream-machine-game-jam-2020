@@ -242,4 +242,15 @@ func _on_Blink_spawn_monster_running():
 	pass # Replace with function body.
 
 func _on_Blink_spawn_monster_walking():
-	pass # Replace with function body.
+	var monster_instance = monster_scene.instance()
+	# Sortear se o monstro parecerá na direita ou na esquerda
+	var spawn_index = randi() % monster_spawn_01.size()
+	var spawn_position = monster_spawn_02[spawn_index].global_position
+	# Ajustar a posição dele pra mesma posição dos marcadores
+	monster_instance.global_position = spawn_position
+	# Ajustar o flip_H
+	if monster_instance.global_position.x > global_position.x:
+		monster_instance.scale.x = -1
+	# Adicionar a cena
+#	monster_instance.set_time_visible(2)
+	get_parent().add_child(monster_instance)
