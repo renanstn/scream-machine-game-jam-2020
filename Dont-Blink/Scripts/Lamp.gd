@@ -3,6 +3,15 @@ extends Position2D
 onready var light = $FeixeDeLux
 onready var timer = $Timer
 onready var sound = $LightSound
+onready var animation = $AnimationPlayer
+
+func _ready():
+	animation.play("balance")
+	randomize()
+	# var random_speed = rand_range(0, 1)
+	# animation.playback_speed = random_speed
+	var random_start = rand_range(0, 4)
+	animation.seek(random_start)
 
 func _on_LampGlitch_body_entered(body):
 	if body.name == "Player":

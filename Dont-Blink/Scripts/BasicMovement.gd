@@ -54,7 +54,7 @@ signal show_hud
 
 # ========================================================================
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	monster_spawn_01 = [monster_spawn_01_left, monster_spawn_01_right]
 	monster_spawn_02 = [monster_spawn_02_left, monster_spawn_02_right]
 	var key = ["intro001", "intro002", "intro003", "intro004", "intro005"]
@@ -75,7 +75,7 @@ func _process(delta):
 				get_tree().call_group("door", "open_door", item.door_to_open)
 
 	# Aperta botão UP no elevador
-	if Input.is_action_just_pressed("up"):
+	if Input.is_action_just_pressed("up") and is_on_floor():
 		var itens = interactive_area.get_overlapping_areas()
 		for item in itens:
 			if item.get_parent().name in elevator_names and not item.get_parent().working:
@@ -83,7 +83,7 @@ func _process(delta):
 				item.get_parent().change_floor(actual_floor + 1)
 
 	# Aperta botão DOWN no elevador
-	if Input.is_action_just_pressed("down"):
+	if Input.is_action_just_pressed("down") and is_on_floor():
 		var itens = interactive_area.get_overlapping_areas()
 		for item in itens:
 			if item.get_parent().name in elevator_names and not item.get_parent().working:
