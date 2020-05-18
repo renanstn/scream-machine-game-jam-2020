@@ -1,20 +1,27 @@
-extends KinematicBody2D
+extends Area2D
 
-const GRAVITY = 20
-const UP = Vector2(0, -1)
 
 onready var anim_player = $AnimationPlayer
 onready var timer_visible = $TimerVisible
 
-var motion : Vector2
+var fear_level : int
+var timer_levels = {
+	1: 1.5,
+	2: 2.0,
+	3: 3.0
+}
 
 func _ready():
-	anim_player.play("idle")
+	fear_level = Global.fear_level
+	# No level 1 o monstro somente aparece parado
+	if fear_level == 1:
+		anim_player.play("idle")
+	# No level 2 e 3 o monstro já persegue
+	elif fear_level == 2 or fear_level == 3:
+		anim_player.play("walking")
+	
+	timer_visible.wait_time = timer_levels[fear_level]
 	timer_visible.start()
-
-func _physics_process(delta):
-	motion.y += GRAVITY
-	motion = move_and_slide(motion, UP)
 
 func set_time_visible(time):
 	timer_visible.wait_time = time

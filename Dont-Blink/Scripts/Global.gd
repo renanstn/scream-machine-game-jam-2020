@@ -3,20 +3,16 @@ extends Node
 
 const PATH_SAVE = "user://savegame.save"
 var data : Dictionary
-var fear_level : int = 0
+var fear_level : int = 0 # Vai de 0 a 3
 var event_happening : bool = false
-# 0: No events
-# 1: Scare image
-# 2: Glitches
-
 
 func save():
 	data = {
 		"nivel": 0,
-		"info": "renan"
+		"info": "test"
 	}
 	return data
-	
+
 func save_game():
 	var save_data = File.new()
 	save_data.open(PATH_SAVE, File.WRITE)
