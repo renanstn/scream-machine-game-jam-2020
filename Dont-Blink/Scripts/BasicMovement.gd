@@ -31,6 +31,7 @@ onready var monster_spawn_01_left = $Level1_MonsterSpawnLeft
 onready var monster_spawn_01_right = $Level1_MonsterSpawnRight
 onready var monster_spawn_02_left = $Level2_MonsterSpawnLeft
 onready var monster_spawn_02_right = $Level2_MonsterSpawnRight
+onready var dust_particles = $CPUParticles2D
 
 var motion : Vector2 = Vector2()
 var max_speed : float = WALK_SPEED
@@ -171,8 +172,12 @@ func animate():
 	if is_on_floor():
 		if abs(motion.x) > 1.0:
 			animation_player.play("walking")
+			dust_particles.emitting = true
 		else:
 			animation_player.play("idle")
+			dust_particles.emitting = false
+	else:
+		dust_particles.emitting = false
 
 func emit_sound():
 	if is_on_floor():
