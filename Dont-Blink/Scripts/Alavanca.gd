@@ -15,4 +15,5 @@ func open_door():
 		change_fear_level()
 
 func change_fear_level():
-	Global.fear_level += 1
+	if Global.fear_level < Global.MAX_FEAR_LEVEL:
+		Global.fear_level += 1

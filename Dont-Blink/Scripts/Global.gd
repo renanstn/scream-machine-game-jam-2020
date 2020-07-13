@@ -2,8 +2,9 @@ extends Node
 
 
 const PATH_SAVE = "user://savegame.save"
+const MAX_FEAR_LEVEL = 3
 var data : Dictionary
-var fear_level : int = 0 # Vai de 0 a 3
+var fear_level : int = 0 # Vai de 0 a MAX_FEAR_LEVEL
 var event_happening : bool = false
 
 func save():
