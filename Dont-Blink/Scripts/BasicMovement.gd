@@ -74,6 +74,7 @@ func _process(delta):
 			if item.has_method("open_door"):
 				item.open_door()
 				get_tree().call_group("door", "open_door", item.door_to_open)
+				get_tree().call_group("generators", "turn_on", item.generator_to_activate)
 
 	# Aperta botão UP no elevador
 	if Input.is_action_just_pressed("up") and is_on_floor():

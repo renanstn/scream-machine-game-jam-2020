@@ -39,7 +39,9 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="Generator" type="Area2D"]
+[node name="Generator" type="Area2D" groups=[
+"generators",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

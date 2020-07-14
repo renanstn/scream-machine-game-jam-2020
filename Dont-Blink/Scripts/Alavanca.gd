@@ -1,6 +1,7 @@
 extends Area2D
 
 export(int) var door_to_open
+export(int) var generator_to_activate
 export(bool) var change_fear_level
 
 onready var sprite = $Sprite
@@ -8,7 +9,7 @@ onready var coll = $CollisionShape2D
 onready var sound = $AlavancaSound
 
 func open_door():
-	sprite.frame = 1
+	scale = Vector2(-1, 1)
 	sound.play()
 	coll.disabled = true
 	if change_fear_level:

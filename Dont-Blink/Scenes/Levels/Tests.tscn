@@ -43,15 +43,19 @@ position = Vector2( 288, 560 )
 
 [node name="Generator" parent="ObjectsBack" instance=ExtResource( 8 )]
 position = Vector2( 208, 560 )
+id = 1
 
 [node name="Generator2" parent="ObjectsBack" instance=ExtResource( 8 )]
 position = Vector2( -112, 560 )
+id = 2
 
 [node name="Generator3" parent="ObjectsBack" instance=ExtResource( 8 )]
 position = Vector2( -384, 560 )
+id = 3
 
 [node name="Generator4" parent="ObjectsBack" instance=ExtResource( 8 )]
 position = Vector2( -640, 560 )
+id = 4
 
 [node name="Barrel" parent="ObjectsBack" instance=ExtResource( 9 )]
 position = Vector2( 416, 576 )
@@ -68,21 +72,25 @@ position = Vector2( 712, 576 )
 [node name="Alavanca" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( 256, 576 )
 door_to_open = 1
+generator_to_activate = 1
 change_fear_level = true
 
 [node name="Alavanca2" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -64, 576 )
 door_to_open = 2
+generator_to_activate = 2
 change_fear_level = true
 
 [node name="Alavanca3" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -334.369, 579.059 )
 door_to_open = 3
+generator_to_activate = 3
 change_fear_level = true
 
 [node name="Alavanca4" parent="ObjectsBack" instance=ExtResource( 10 )]
 position = Vector2( -590.369, 579.059 )
 door_to_open = 4
+generator_to_activate = 4
 change_fear_level = true
 
 [node name="Door" parent="ObjectsBack" instance=ExtResource( 14 )]
