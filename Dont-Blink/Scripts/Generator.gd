@@ -6,7 +6,7 @@ onready var sound = $AudioStreamPlayer2D
 export(int) var id
 
 func _ready():
-	pass
+	anim_player.play("stop")
 
 func turn_on(id_to_turn_on:int):
 	if id == id_to_turn_on:

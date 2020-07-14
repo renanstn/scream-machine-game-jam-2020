@@ -26,6 +26,6 @@ func set_camera_limits():
 	var map_cellsize = tilemap.cell_size
 	limit_left = map_limits.position.x * map_cellsize.x
 	limit_right = map_limits.end.x * map_cellsize.x
-	limit_top = map_limits.position.y * map_cellsize.y
+	limit_top = map_limits.position.y * map_cellsize.y + 70
 #	limit_bottom = map_limits.end.y * map_cellsize.y
 	# TODO: ajustar o limite do bottom quando o mapa estiver pronto

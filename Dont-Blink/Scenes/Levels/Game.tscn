@@ -136,12 +136,15 @@ position = Vector2( -176, -18.8239 )
 
 [node name="Generator2" parent="ItensBack" instance=ExtResource( 4 )]
 position = Vector2( -1157.12, -18.995 )
+id = 1
 
 [node name="Generator3" parent="ItensBack" instance=ExtResource( 4 )]
 position = Vector2( -954.771, -339.142 )
+id = 2
 
 [node name="Generator4" parent="ItensBack" instance=ExtResource( 4 )]
 position = Vector2( -954, -659 )
+id = 3
 
 [node name="OldBoxes" parent="ItensBack" instance=ExtResource( 5 )]
 position = Vector2( 32, 0 )
@@ -172,16 +175,19 @@ door_to_open = 1
 [node name="Alavanca2" parent="ItensBack" instance=ExtResource( 7 )]
 position = Vector2( -1211, 0 )
 door_to_open = 2
+generator_to_activate = 1
 change_fear_level = true
 
 [node name="Alavanca3" parent="ItensBack" instance=ExtResource( 7 )]
 position = Vector2( -899.529, -320.081 )
 door_to_open = 3
+generator_to_activate = 2
 change_fear_level = true
 
 [node name="Alavanca4" parent="ItensBack" instance=ExtResource( 7 )]
 position = Vector2( -900, -640 )
 door_to_open = 4
+generator_to_activate = 3
 change_fear_level = true
 
 [node name="Barrel" parent="ItensBack" instance=ExtResource( 8 )]
