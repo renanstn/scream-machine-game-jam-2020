@@ -42,6 +42,7 @@ func _process(delta):
 			event = EVENT.scare_image
 
 	emit_signal("time_left", timer.time_left)
+
 	if Input.is_action_just_pressed("blink") and not anim_player.is_playing():
 		blink()
 
